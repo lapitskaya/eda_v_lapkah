@@ -1,6 +1,6 @@
 .app {
   min-height: 100vh;
-  padding: 20px;
+  padding: 80px;
   box-sizing: border-box;
   background-color: #282c34;
   color: white;
@@ -13,4 +13,11 @@
   align-items: center;
   justify-content: center;
   font-size: 48px;
+}
+
+.content {
+  min-height: 240px;
+  background: darkgoldenrod;
+  color: white;
+  border-radius: 4px;
 }
