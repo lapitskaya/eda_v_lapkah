@@ -1,13 +1,14 @@
 .app {
   min-height: 100vh;
-  padding: 80px;
+  padding: 40px 80px;
   box-sizing: border-box;
   background-color: #282c34;
   color: white;
 }
 
 .appName {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +17,7 @@
 }
 
 .content {
-  min-height: 240px;
+  padding: 16px;
   background: darkgoldenrod;
   color: white;
   border-radius: 4px;

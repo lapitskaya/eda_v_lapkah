@@ -13,13 +13,14 @@ function App() {
               <h1 className="appName">Eda v lapkah</h1>
               {/*<ul>
                   <li><NavLink to="/">Главная</NavLink></li>
-                  <li><NavLink to="/recepies">Мои рецепты</NavLink></li>
+                  <li><NavLink to="/recipes">Мои рецепты</NavLink></li>
                   <li><NavLink to="/profile">Профиль</NavLink></li>
               </ul>*/}
               <div className="content">
+                  <Home />
                   {/*<Routes>
                       <Route exact path="/" component={About} />
-                      <Route path="/recepies" component={Home} />
+                      <Route path="/recipes" component={Home} />
                       <Route path="/profile" component={Profile} />
                   </Routes>*/}
               </div>
