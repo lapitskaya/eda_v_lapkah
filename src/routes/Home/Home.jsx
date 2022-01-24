@@ -14,11 +14,11 @@ class Home extends React.Component {
             },
         };
 
-        this.setRecipeContent = this.setRecipeContent.bind(this);
-        this.setNewRecipe = this.setNewRecipe.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    setRecipeContent(e) {
+    handleChange(e) {
         this.setState({
             recipe: {
                 typing: e.target.value,
@@ -26,7 +26,7 @@ class Home extends React.Component {
         })
     }
 
-    setNewRecipe(e) {
+    handleSubmit(e) {
         this.setState((prevState) => {
             return {
                 hasRecipe: true,
@@ -45,8 +45,8 @@ class Home extends React.Component {
             <>
                 <p className="description">Здесь добавляют рецепты.</p>
                 <div>{this.state.recipe.content}</div>
-                <form onSubmit={this.setNewRecipe}>
-                    <input onChange={this.setRecipeContent} ref={(el) => this._input = el} placeholder="Ссылка на рецепт"/>
+                <form onSubmit={this.handleSubmit}>
+                    <input onChange={this.handleChange} ref={(el) => this._input = el} placeholder="Ссылка на рецепт"/>
                     <button type="submit">Добавить</button>
                 </form>
             </>
