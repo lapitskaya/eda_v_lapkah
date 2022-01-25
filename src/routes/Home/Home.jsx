@@ -1,39 +1,47 @@
 import  './Home.css';
 import React from "react";
+import RecipeList from "./RecipeList/RecipeList";
+
+function RecipesRenderer(props) {
+    const hasRecipe = props.hasRecipe;
+    if (hasRecipe) {
+        return (
+            <RecipeList recipes={props.recipes} />
+        );
+    }
+    return <p className="description">Здесь добавляют рецепты.</p>;
+}
 
 class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             hasRecipe: false,
-            recipe: {
-                contentType: '',
-                isLink: true,
-                typing: '',
-                content: ''
-            },
+            recipes: [],
+            inputVal: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.addRecipe = this.addRecipe.bind(this);
     }
 
     handleChange(e) {
         this.setState({
-            recipe: {
-                typing: e.target.value,
-            }
-        })
+            inputVal: e.target.value,
+        });
+    }
+
+    addRecipe(newRecipe) {
+        let recipes = this.state.recipes;
+        recipes.push(newRecipe);
+        return recipes;
     }
 
     handleSubmit(e) {
-        this.setState((prevState) => {
-            return {
-                hasRecipe: true,
-                recipe: {
-                    content: prevState.recipe.typing,
-                },
-            };
+        this.setState({
+            hasRecipe: true,
+            recipes: this.addRecipe(this.state.inputVal),
         });
         this._input.focus();
         this._input.value = "";
@@ -43,8 +51,7 @@ class Home extends React.Component {
     render() {
         return (
             <>
-                <p className="description">Здесь добавляют рецепты.</p>
-                <div>{this.state.recipe.content}</div>
+                <RecipesRenderer hasRecipe={this.state.hasRecipe} recipes={this.state.recipes} />
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleChange} ref={(el) => this._input = el} placeholder="Ссылка на рецепт"/>
                     <button type="submit">Добавить</button>
