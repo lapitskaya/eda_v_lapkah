@@ -9,7 +9,7 @@ function RecipesRenderer(props) {
             <RecipeList recipes={props.recipes} />
         );
     }
-    return <p className="description">Здесь добавляют рецепты.</p>;
+    return <p className="description">У вас пока нет рецептов, но вы можете их добавить!</p>;
 }
 
 class Home extends React.Component {
@@ -51,6 +51,7 @@ class Home extends React.Component {
     render() {
         return (
             <>
+                <h2 className="cardTitle">Мои рецепты:</h2>
                 <RecipesRenderer hasRecipe={this.state.hasRecipe} recipes={this.state.recipes} />
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleChange} ref={(el) => this._input = el} placeholder="Ссылка на рецепт"/>

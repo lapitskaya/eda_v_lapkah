@@ -1,10 +1,11 @@
-import styles from './RecipeList.css';
+import './RecipeList.css';
 import React from "react";
+import Recipe from "../Recipe/Recipe";
 
 class RecipeList extends React.Component {
     renderRecipe(recipes, i) {
         return (
-            <p key={i}>{recipes[i]}</p>
+            <Recipe key={i} recipe={recipes[i]} />
         )
     }
 
@@ -15,9 +16,11 @@ class RecipeList extends React.Component {
             recipeList.push(this.renderRecipe(recipes, recipeNum));
         }
         return (
-            <ul className={styles.recipes}>
-                {recipeList}
-            </ul>
+            <>
+                <ul className="recipes">
+                    {recipeList}
+                </ul>
+            </>
         );
     }
 }
