@@ -1,16 +1,6 @@
 import  './Home.css';
 import React from "react";
-import RecipeList from "./RecipeList/RecipeList";
-
-function RecipesRenderer(props) {
-    const hasRecipe = props.hasRecipe;
-    if (hasRecipe) {
-        return (
-            <RecipeList recipes={props.recipes} />
-        );
-    }
-    return <p className="description">У вас пока нет рецептов, но вы можете их добавить!</p>;
-}
+import RecipesRenderer from "./RecipesRenderer/RecipesRenderer";
 
 class Home extends React.Component {
     constructor(props) {

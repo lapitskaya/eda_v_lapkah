@@ -1,6 +1,7 @@
 import './RecipeList.css';
 import React from "react";
 import Recipe from "../Recipe/Recipe";
+import PropTypes from "prop-types";
 
 class RecipeList extends React.Component {
     renderRecipe(recipes, i) {
@@ -23,6 +24,10 @@ class RecipeList extends React.Component {
             </>
         );
     }
+}
+
+RecipeList.propTypes = {
+    recipes: PropTypes.array
 }
 
 export default RecipeList;
